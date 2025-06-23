@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fake And Genuine Profile Detection</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    .content {
+        margin-bottom: 20px;
+    }
+    .hidden {
+        display: none;
+    }
+    .input-box {
+        margin-bottom: 10px;
+    }
+    input[type="text"], input[type="checkbox"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fake And Genuine Profile Detection</h1>
+        <form action="/submit_section" method="POST" id="mainForm">
+            <div class="content" id="section1">
+                <h2>Search by Username</h2>
+                <div class="input-box">
+                    <label for="input1">Username:</label>
+                    <input type="text" id="input1" name="input1">
+                </div>
+                <button type="submit">Submit Section 1</button>
+            </div>
+        </form>
+        <form action="/submit" method="POST" class="content hidden" id="section2">
+            <h2>Predict By Attributes</h2>
+            <div class="input-box">
+                <label for="followers">Followers:</label>
+                <input type="text" id="followers" name="Followers">
+            </div>
+            <div class="input-box">
+                <label for="followings">Following:</label>
+                <input type="text" id="followings" name="Followings">
+            </div>
+            <div class="input-box">
+                <label for="bio_length">Bio Length:</label>
+                <input type="text" id="bio_length" name="Bio length">
+            </div>
+            <div class="input-box">
+                <label for="checkbox1">Private:</label>
+                <input type="checkbox" id="private" name="Private">
+            </div>
+            <div class="input-box">
+                <label for="checkbox2">Fullname:</label>
+                <input type="checkbox" id="fullname" name="Fullname">
+            </div>
+            <div class="input-box">
+                <label for="post_count">Post Count:</label>
+                <input type="text" id="post_count" name="Post count">
+            </div>
+            <div class="input-box">
+                <label for="avg_media_likes">Average Media Likes:</label>
+                <input type="text" id="avg_media_likes" name="Average number of media likes">
+            </div>
+            <div class="input-box">
+                <label for="media_count">Media Count:</label>
+                <input type="text" id="media_count" name="Media count">
+            </div>
+            <div class="input-box">
+                <label for="last_month_media_count">Last Month Media Count:</label>
+                <input type="text" id="last_month_media_count" name="Last month media count">
+            </div>
+            <div class="input-box">
+                <label for="consecutive_chars">Consecutive Characters in Username:</label>
+                <input type="text" id="consecutive_chars" name="Consecutive characters in username">
+            </div>
+            <div class="input-box">
+                <label for="num_digits">Number of Digits in Username:</label>
+                <input type="text" id="num_digits" name="Number of digits in username">
+            </div>
+            <button type="submit">Submit Section 2</button>
+        </form>
+        <button onclick="toggleSections()">Toggle Sections</button>
+        <br>
+        <br>
+        <br>
+        <div class="result">
+            {{ result }}
+        </div>
+    </div>
+
+    <script>
+        function toggleSections() {
+            const section1 = document.getElementById('section1');
+            const section2 = document.getElementById('section2');
+
+            if (section1.classList.contains('hidden')) {
+                section1.classList.remove('hidden');
+                section2.classList.add('hidden');
+            } else {
+                section1.classList.add('hidden');
+                section2.classList.remove('hidden');
+            }
+        }
+    </script>
+    <script>
+        function showBlockDetails(blockHash) {
+            // Implement logic to display block details based on block hash
+            alert("Block Hash: " + blockHash);
+        }
+    </script>    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .error {
+        color: red;
+        margin-bottom: 10px;
+    }
+    </style>
+</head>
+<body>
+    <a href="/logout" style="margin-left: 90%;"><button>logout</button></a>
+    <h1>Welcome, {{ username }}</h1>
+    <h2>Prediction Blocks:</h2>
+    {% if prediction_blocks %}
+        <table>
+            <tr>
+                <th>UserId</th>
+                <th>Stored In Block Number</th>
+                <th>Block Hash</th>
+            </tr>
+            {% for block in prediction_blocks %}
+                <tr>
+                    <td>{{ block.username }}</td>
+                    <td>{{ block.block_number }}</td>
+                    <td>{{ block.block_hash }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No prediction blocks available.</p>
+    {% endif %}
+</body>
+</html>
