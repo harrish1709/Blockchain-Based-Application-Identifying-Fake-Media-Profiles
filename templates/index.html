@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content with Radio Buttons</title>
+</head>
+<body>
+
+<h2>Select Content:</h2>
+
+<input type="radio" id="content1" name="content" value="Content 1" onchange="changeContent()"> Content 1<br>
+<div id="displayContent">
+    <!-- Content will be displayed here -->
+</div>
+
+<script>
+    function changeContent() {
+        var content1 = document.getElementById("content1");
+        var content2 = document.getElementById("content2");
+        var displayContent = document.getElementById("displayContent");
+
+        if (content1.checked) {
+            displayContent.innerHTML = `
+                <form action="/submit" method="post">
+                    <label for="username">Username:</label><br>
+                    <input type="text" id="username" name="username"><br>
+                    <input type="submit" value="Submit">
+                </form>
+            `;
+        } else if (content2.checked) {
+            displayContent.innerHTML = `
+                <form action="/sub" method="post">
+                    <label for="username">User_name</label><br>
+                    <input type="text" id="usernamet" name="username"><br>  
+                    <label for="statuses_count">Statuses Count:</label><br>
+                    <input type="number" id="statuses_count" name="statuses_count"><br>
+                    <label for="followers_count">Followers Count:</label><br>
+                    <input type="number" id="followers_count" name="followers_count"><br>
+                    <label for="friends_count">Friends Count:</label><br>
+                    <input type="number" id="friends_count" name="friends_count"><br>
+                    <label for="favourites_count">Favourites Count:</label><br>
+                    <input type="number" id="favourites_count" name="favourites_count"><br>
+                    <label for="listed_count">Listed Count:</label><br>
+                    <input type="number" id="listed_count" name="listed_count"><br>
+                    <label for="default_profile">Default Profile:</label><br>
+                    <input type="checkbox" id="default_profile" name="default_profile"><br>
+                    <label for="default_profile_image">Default Profile Image:</label><br>
+                    <input type="checkbox" id="default_profile_image" name="default_profile_image"><br>
+                    <input type="submit" value="Submit">
+                </form>
+            `;
+        }
+    }
+</script>
+{{result}}
+</body>
+</html>
